@@ -1,0 +1,16 @@
+[
+{
+  "modid": "ping",
+  "name": "Ping!",
+  "description": "Pinging the player when they are mentioned in chat.",
+  "version": "${version}",
+  "mcversion": "1.7.10",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["SatanicSanta"],
+  "credits": "",
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
