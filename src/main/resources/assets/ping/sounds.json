@@ -1,0 +1,56 @@
+{
+  "blop": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "blop",
+        "stream": false
+      }
+    ]
+  },
+  "gum": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "gum",
+        "stream": false
+      }
+    ]
+  },
+  "pling": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "pling",
+        "stream": false
+      }
+    ]
+  },
+  "ping": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "ping",
+        "stream": false
+      }
+    ]
+  },
+  "ting": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "ting",
+        "stream": false
+      }
+    ]
+  },
+  "pop": {
+    "category": "master",
+    "sounds": [
+      {
+        "name": "pop",
+        "stream": false
+      }
+    ]
+  }
+}
