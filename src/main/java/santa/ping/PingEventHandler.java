@@ -17,7 +17,14 @@ public class PingEventHandler {
         String text = event.message.getUnformattedText().toLowerCase();
         text = text.replaceFirst("<.+>", "");
         if (text.contains(name)) {
-            player.playSound(String.format("ping:%s", Ping.soundType), 1.0F, 1.0F);
+            player.playSound(String.format("ping:%s", Config.soundType), 1.0F, 1.0F);
+        } else if (Ping.customNames != null) {
+            for (int i = 0; i < Ping.customNames.length; i++) {
+                if (text.contains(Ping.customNames[i])) {
+                    player.playSound(String.format("ping:%s", Config.soundType), 1.0F, 1.0F);
+                    break;
+                }
+            }
         }
     }
 }
