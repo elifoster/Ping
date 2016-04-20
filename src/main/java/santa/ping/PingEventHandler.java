@@ -34,7 +34,7 @@ public class PingEventHandler {
      * @param target The player whose client to play the sound in.
      */
     private void playSoundSendMessage(ChatComponentTranslation component, EntityPlayer target) {
-        target.playSound(String.format("ping:%s", Config.soundType), 1.0F, 1.0F);
+        Minecraft.getMinecraft().getSoundHandler().playSound(Ping.SOUND);
         if (Ping.customColor != null) {
             component.getChatStyle().setColor(Ping.customColor);
         }
