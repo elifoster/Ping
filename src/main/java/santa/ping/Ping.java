@@ -7,10 +7,11 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(name = "Ping!", modid = "ping", version = "1.0.0")
+@Mod(name = "Ping!", modid = "ping", version = "1.1.1")
 public class Ping {
     public static String[] customNames;
     public static EnumChatFormatting customColor = null;
+    public static PingSound SOUND;
 
     @Mod.EventHandler
     public void preInit(FMLPreInitializationEvent event) {
@@ -29,6 +30,8 @@ public class Ping {
         if (customColor == null) {
             FMLLog.warning("[Ping!] Highlight color is invalid. Please fix your config.");
         }
+
+        SOUND = new PingSound(Config.soundType);
     }
 
     @Mod.EventHandler
