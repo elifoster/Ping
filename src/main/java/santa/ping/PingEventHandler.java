@@ -2,7 +2,8 @@ package santa.ping;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.text.Style;
+import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.event.ServerChatEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -12,15 +13,15 @@ public class PingEventHandler {
         Minecraft mc = Minecraft.getMinecraft();
         EntityPlayer player = mc.thePlayer;
         String name = player.getName().toLowerCase();
-        ChatComponentTranslation component = (ChatComponentTranslation) event.getComponent();
+        TextComponentTranslation component = (TextComponentTranslation) event.getComponent();
         String text = event.getComponent().getUnformattedText().toLowerCase();
         text = text.replaceFirst("<.+>", "");
         if (text.contains(name)) {
-            playSoundSendMessage(component, player);
+            playSoundSendMessage(component, mc);
         } else if (Ping.customNames != null) {
             for (int i = 0; i < Ping.customNames.length; i++) {
                 if (text.contains(Ping.customNames[i])) {
-                    playSoundSendMessage(component, player);
+                    playSoundSendMessage(component, mc);
                     break;
                 }
             }
@@ -31,17 +32,20 @@ public class PingEventHandler {
      * Plays the sound defined in the config, and alters the chat message based on the config.
      *
      * @param component The ChatComponentTranslation to change.
-     * @param target The player whose client to play the sound in.
+     * @param mc The Minecraft instance to play the sound in.
      */
-    private void playSoundSendMessage(ChatComponentTranslation component, EntityPlayer target) {
-        Minecraft.getMinecraft().getSoundHandler().playSound(Ping.SOUND);
+    private void playSoundSendMessage(TextComponentTranslation component, Minecraft mc) {
+        mc.getSoundHandler().playSound(Ping.SOUND);
+        Style style = new Style();
         if (Ping.customColor != null) {
-            component.getChatStyle().setColor(Ping.customColor);
+            style.setColor(Ping.customColor);
         }
 
-        component.getChatStyle().setBold(Config.bold);
-        component.getChatStyle().setItalic(Config.italic);
-        component.getChatStyle().setStrikethrough(Config.strikethrough);
-        component.getChatStyle().setUnderlined(Config.underline);
+        style.setBold(Config.bold);
+        style.setItalic(Config.italic);
+        style.setStrikethrough(Config.strikethrough);
+        style.setUnderlined(Config.underline);
+
+        component.setStyle(style);
     }
 }

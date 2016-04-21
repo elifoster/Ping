@@ -1,16 +1,16 @@
 package santa.ping;
 
-import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.fml.common.FMLLog;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(name = "Ping!", modid = "ping", version = "2.0.1")
+@Mod(name = "Ping!", modid = "ping", version = "3.0.0")
 public class Ping {
     public static String[] customNames;
-    public static EnumChatFormatting customColor = null;
+    public static TextFormatting customColor = null;
     public static PingSound SOUND;
 
     @Mod.EventHandler
@@ -73,25 +73,25 @@ public class Ping {
      * @param color The string representing the color.
      * @return An EnumChatFormatting color value, or null if it is invalid.
      */
-    private static EnumChatFormatting getColorFromConfig(String color) {
+    private static TextFormatting getColorFromConfig(String color) {
         switch (color) {
-            case ("aqua"): return EnumChatFormatting.AQUA;
-            case ("black"): return EnumChatFormatting.BLACK;
-            case ("blue"): return EnumChatFormatting.BLUE;
-            case ("dark aqua"): return EnumChatFormatting.DARK_AQUA;
-            case ("dark blue"): return EnumChatFormatting.DARK_BLUE;
-            case ("dark gray"): return EnumChatFormatting.DARK_GRAY;
-            case ("dark grey"): return EnumChatFormatting.DARK_GRAY;
-            case ("dark green"): return EnumChatFormatting.DARK_GREEN;
-            case ("dark purple"): return EnumChatFormatting.DARK_PURPLE;
-            case ("dark red"): return EnumChatFormatting.DARK_RED;
-            case ("gold"): return EnumChatFormatting.GOLD;
-            case ("gray"): return EnumChatFormatting.GRAY;
-            case ("grey"): return EnumChatFormatting.GRAY;
-            case ("green"): return EnumChatFormatting.GREEN;
-            case ("light purple"): return EnumChatFormatting.LIGHT_PURPLE;
-            case ("red"): return EnumChatFormatting.RED;
-            case ("yellow"): return EnumChatFormatting.YELLOW;
+            case ("aqua"): return TextFormatting.AQUA;
+            case ("black"): return TextFormatting.BLACK;
+            case ("blue"): return TextFormatting.BLUE;
+            case ("dark aqua"): return TextFormatting.DARK_AQUA;
+            case ("dark blue"): return TextFormatting.DARK_BLUE;
+            case ("dark gray"): return TextFormatting.DARK_GRAY;
+            case ("dark grey"): return TextFormatting.DARK_GRAY;
+            case ("dark green"): return TextFormatting.DARK_GREEN;
+            case ("dark purple"): return TextFormatting.DARK_PURPLE;
+            case ("dark red"): return TextFormatting.DARK_RED;
+            case ("gold"): return TextFormatting.GOLD;
+            case ("gray"): return TextFormatting.GRAY;
+            case ("grey"): return TextFormatting.GRAY;
+            case ("green"): return TextFormatting.GREEN;
+            case ("light purple"): return TextFormatting.LIGHT_PURPLE;
+            case ("red"): return TextFormatting.RED;
+            case ("yellow"): return TextFormatting.YELLOW;
         }
         return null;
     }
