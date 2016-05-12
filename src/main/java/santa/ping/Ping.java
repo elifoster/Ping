@@ -7,7 +7,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(name = "Ping!", modid = "ping", version = "1.1.1")
+@Mod(name = "Ping!", modid = "ping", version = "1.1.2")
 public class Ping {
     public static String[] customNames;
     public static EnumChatFormatting customColor = null;
