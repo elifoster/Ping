@@ -3,24 +3,24 @@ package santa.ping;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.ChatComponentTranslation;
-import net.minecraftforge.event.ServerChatEvent;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class PingEventHandler {
     @SubscribeEvent
-    public void onChatMessage(ServerChatEvent event) {
+    public void onChatMessage(ClientChatReceivedEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         EntityPlayer player = mc.thePlayer;
         String name = player.getName().toLowerCase();
-        ChatComponentTranslation component = (ChatComponentTranslation) event.getComponent();
-        String text = event.getComponent().getUnformattedText().toLowerCase();
+        ChatComponentTranslation component = (ChatComponentTranslation) event.message;
+        String text = event.message.getUnformattedText().toLowerCase();
         text = text.replaceFirst("<.+>", "");
         if (text.contains(name)) {
-            playSoundSendMessage(component, player);
+            playSoundSendMessage(component);
         } else if (Ping.customNames != null) {
             for (int i = 0; i < Ping.customNames.length; i++) {
                 if (text.contains(Ping.customNames[i])) {
-                    playSoundSendMessage(component, player);
+                    playSoundSendMessage(component);
                     break;
                 }
             }
@@ -31,9 +31,8 @@ public class PingEventHandler {
      * Plays the sound defined in the config, and alters the chat message based on the config.
      *
      * @param component The ChatComponentTranslation to change.
-     * @param target The player whose client to play the sound in.
      */
-    private void playSoundSendMessage(ChatComponentTranslation component, EntityPlayer target) {
+    private void playSoundSendMessage(ChatComponentTranslation component) {
         Minecraft.getMinecraft().getSoundHandler().playSound(Ping.SOUND);
         if (Ping.customColor != null) {
             component.getChatStyle().setColor(Ping.customColor);
