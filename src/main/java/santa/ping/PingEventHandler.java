@@ -4,17 +4,17 @@ import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.util.text.Style;
 import net.minecraft.util.text.TextComponentTranslation;
-import net.minecraftforge.event.ServerChatEvent;
+import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 public class PingEventHandler {
     @SubscribeEvent
-    public void onChatMessage(ServerChatEvent event) {
+    public void onChatMessage(ClientChatReceivedEvent event) {
         Minecraft mc = Minecraft.getMinecraft();
         EntityPlayer player = mc.thePlayer;
         String name = player.getName().toLowerCase();
-        TextComponentTranslation component = (TextComponentTranslation) event.getComponent();
-        String text = event.getComponent().getUnformattedText().toLowerCase();
+        TextComponentTranslation component = (TextComponentTranslation) event.getMessage();
+        String text = event.getMessage().getUnformattedText().toLowerCase();
         text = text.replaceFirst("<.+>", "");
         if (text.contains(name)) {
             playSoundSendMessage(component, mc);
