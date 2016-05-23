@@ -7,7 +7,7 @@ import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.event.FMLInitializationEvent;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
-@Mod(name = "Ping!", modid = "ping", version = "3.0.1")
+@Mod(name = "Ping!", modid = "ping", version = "3.0.2")
 public class Ping {
     public static String[] customNames;
     public static TextFormatting customColor = null;

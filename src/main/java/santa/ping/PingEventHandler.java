@@ -2,8 +2,8 @@ package santa.ping;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.util.text.ITextComponent;
 import net.minecraft.util.text.Style;
-import net.minecraft.util.text.TextComponentTranslation;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
@@ -13,7 +13,7 @@ public class PingEventHandler {
         Minecraft mc = Minecraft.getMinecraft();
         EntityPlayer player = mc.thePlayer;
         String name = player.getName().toLowerCase();
-        TextComponentTranslation component = (TextComponentTranslation) event.getMessage();
+        ITextComponent component = event.getMessage();
         String text = event.getMessage().getUnformattedText().toLowerCase();
         text = text.replaceFirst("<.+>", "");
         if (text.contains(name)) {
@@ -34,7 +34,7 @@ public class PingEventHandler {
      * @param component The ChatComponentTranslation to change.
      * @param mc The Minecraft instance to play the sound in.
      */
-    private void playSoundSendMessage(TextComponentTranslation component, Minecraft mc) {
+    private void playSoundSendMessage(ITextComponent component, Minecraft mc) {
         mc.getSoundHandler().playSound(Ping.SOUND);
         Style style = new Style();
         if (Ping.customColor != null) {
