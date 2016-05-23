@@ -3,7 +3,7 @@ package santa.ping;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.util.ChatComponentTranslation;
+import net.minecraft.util.IChatComponent;
 import net.minecraftforge.client.event.ClientChatReceivedEvent;
 
 public class PingEventHandler {
@@ -15,11 +15,11 @@ public class PingEventHandler {
         String text = event.message.getUnformattedText().toLowerCase();
         text = text.replaceFirst("<.+>", "");
         if (text.contains(name)) {
-            playSoundSendMessage((ChatComponentTranslation) event.message);
+            playSoundSendMessage(event.message);
         } else if (Ping.customNames != null) {
             for (int i = 0; i < Ping.customNames.length; i++) {
                 if (text.contains(Ping.customNames[i])) {
-                    playSoundSendMessage((ChatComponentTranslation) event.message);
+                    playSoundSendMessage(event.message);
                     break;
                 }
             }
@@ -29,9 +29,9 @@ public class PingEventHandler {
     /**
      * Plays the sound defined in the config, and alters the chat message based on the config.
      *
-     * @param component The ChatComponentTranslation to change.
+     * @param component The ChatComponent to change.
      */
-    private void playSoundSendMessage(ChatComponentTranslation component) {
+    private void playSoundSendMessage(IChatComponent component) {
         Minecraft.getMinecraft().getSoundHandler().playSound(Ping.SOUND);
         if (Ping.customColor != null) {
             component.getChatStyle().setColor(Ping.customColor);

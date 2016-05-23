@@ -7,7 +7,7 @@ import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(name = "Ping!", modid = "ping", version = "1.1.2")
+@Mod(name = "Ping!", modid = "ping", version = "1.1.3")
 public class Ping {
     public static String[] customNames;
     public static EnumChatFormatting customColor = null;
@@ -42,7 +42,6 @@ public class Ping {
     /**
      * Determines if the sound is valid according to the Config valid types array.
      *
-     * @author Eli Clemente Gordillo Foster
      * @param sound The sound type string provided by the configuration file.
      * @return A boolean value representing whether the given sound type is valid.
      */
@@ -58,7 +57,6 @@ public class Ping {
     /**
      * Converts the custom names string in the config to an array of usernames.
      *
-     * @author Eli Clemente Gordillo Foster
      * @param base The base customNames string.
      * @return An array containing all of the separated usernames
      */
@@ -72,7 +70,6 @@ public class Ping {
     /**
      * Gets the according EnumChatFormatting color based on the string in the config file.
      *
-     * @author Eli Clemente Gordillo Foster
      * @param color The string representing the color.
      * @return An EnumChatFormatting color value, or null if it is invalid.
      */
