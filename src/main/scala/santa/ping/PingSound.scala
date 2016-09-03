@@ -8,7 +8,7 @@ import net.minecraft.client.audio.SoundHandler
 import net.minecraft.util.ResourceLocation
 import net.minecraft.util.SoundCategory
 
-class PingSound(var name: String) extends ISound {
+class PingSound(val name: String) extends ISound {
   val loc = new ResourceLocation("ping", name)
   var soundEvent: SoundEventAccessor = _
   var sound: Sound = _
