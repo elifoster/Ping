@@ -36,9 +36,7 @@ class Config(event: FMLPreInitializationEvent) {
   val underline = config.getBoolean("Underline", "Chat Style", false, "")
   config.save()
 
-  def getNamesFromConfig(base: String): Option[Array[String]] = {
-    if (base.isEmpty) None else Some(base.split(";"))
-  }
+  def getNamesFromConfig(base: String) = if (base.isEmpty) None else Some(base.split(";"))
 
   def getColorFromConfig(color: String): Option[TextFormatting] = {
     color match {
