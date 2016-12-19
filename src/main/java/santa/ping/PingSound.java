@@ -9,7 +9,7 @@ public class PingSound implements ISound {
 
     public PingSound(String name) {
         this.name = name;
-        this.loc = new ResourceLocation("ping", name);
+        this.loc = new ResourceLocation("chatping", name);
     }
 
     @Override
