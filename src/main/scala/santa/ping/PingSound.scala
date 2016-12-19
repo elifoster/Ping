@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation
 import net.minecraft.util.SoundCategory
 
 class PingSound(val name: String) extends ISound {
-  val loc = new ResourceLocation("ping", name)
+  val loc = new ResourceLocation("chatping", name)
   var soundEvent: SoundEventAccessor = _
   var sound: Sound = _
 

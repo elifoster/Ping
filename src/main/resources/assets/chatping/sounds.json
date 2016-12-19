@@ -3,7 +3,7 @@
     "category": "master",
     "sounds": [
       {
-        "name": "ping:blop",
+        "name": "chatping:blop",
         "stream": false
       }
     ]
@@ -12,7 +12,7 @@
     "category": "master",
     "sounds": [
       {
-        "name": "ping:gum",
+        "name": "chatping:gum",
         "stream": false
       }
     ]
@@ -21,7 +21,7 @@
     "category": "master",
     "sounds": [
       {
-        "name": "ping:pling",
+        "name": "chatping:pling",
         "stream": false
       }
     ]
@@ -30,7 +30,7 @@
     "category": "master",
     "sounds": [
       {
-        "name": "ping:ping",
+        "name": "chatping:ping",
         "stream": false
       }
     ]
@@ -39,7 +39,7 @@
     "category": "master",
     "sounds": [
       {
-        "name": "ping:ting",
+        "name": "chatping:ting",
         "stream": false
       }
     ]
@@ -48,7 +48,7 @@
     "category": "master",
     "sounds": [
       {
-        "name": "ping:pop",
+        "name": "chatping:pop",
         "stream": false
       }
     ]
