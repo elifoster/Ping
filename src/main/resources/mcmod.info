@@ -1,6 +1,6 @@
 [
 {
-  "modid": "ping",
+  "modid": "chatping",
   "name": "Ping!",
   "description": "Pinging the player when they are mentioned in chat.",
   "version": "${version}",
