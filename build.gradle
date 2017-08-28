@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'scala'
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-version = "3.0.7"
+version = "3.0.8"
 group= "santa.ping"
 archivesBaseName = "ping-1.9"
 
