@@ -10,10 +10,7 @@ class PingEventHandler {
   @SubscribeEvent
   def onChatMessage(event: ClientChatReceivedEvent): Unit = {
     val mc = Minecraft.getMinecraft
-    val player = mc.thePlayer
-    val name = player.getName.toLowerCase
     val component: ITextComponent = event.getMessage
-    val text = event.getMessage.getUnformattedText.toLowerCase.replaceFirst("<.+>", "")
 
     def playSoundSendMessage(): Unit = {
       mc.getSoundHandler.playSound(Ping.sound)
@@ -26,10 +23,11 @@ class PingEventHandler {
       component.setStyle(style)
     }
 
-    if (text.contains(name)) {
-      playSoundSendMessage()
-    } else if (Ping.config.customNames.nonEmpty && Ping.config.customNames.get.exists(text.contains)) {
-      playSoundSendMessage()
-    }
+    val player = mc.thePlayer
+    val name = player.getName
+    val text = component.getUnformattedText.toLowerCase.replaceFirst("<.+>", "")
+    val names: Array[String] = if (Ping.config.customNames.isEmpty) Array(name) else Ping.config.customNames.get :+ name
+
+    if (names.map(n => n.toLowerCase).exists(text.contains)) playSoundSendMessage()
   }
 }
