@@ -25,7 +25,7 @@ class PingEventHandler {
 
     val player = mc.thePlayer
     val name = player.getName
-    val text = component.getUnformattedText.toLowerCase.replaceFirst("<.+>", "")
+    val text = component.getUnformattedText.toLowerCase.replaceFirst("^(\\[|<|\\* )"+name.toLowerCase+"(]|>|)?", "")
     val names: Array[String] = if (Ping.config.customNames.isEmpty) Array(name) else Ping.config.customNames.get :+ name
 
     if (names.map(n => n.toLowerCase).exists(text.contains)) playSoundSendMessage()
